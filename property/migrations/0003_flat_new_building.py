@@ -3,8 +3,16 @@
 from django.db import migrations, models
 
 
-class Migration(migrations.Migration):
+def slugify_title(apps, schema_editor):
+    '''
+    We can't import the Post model directly as it may be a newer
+    version than this migration expects. We use the historical version.
+    '''
+    Flat = apps.get_model('real_estate_agency', 'Flat')
+    pass
 
+
+class Migration(migrations.Migration):
     dependencies = [
         ('property', '0002_auto_20190829_2242'),
     ]
